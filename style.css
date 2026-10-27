@@ -1,0 +1,1226 @@
+/* ==========================================================================
+   CATCH THE SQUIRREL — DENSE BOTANICAL CANOPY STYLES
+   Matched to User Organic Foliage Sketch
+   ========================================================================== */
+
+:root {
+  --font-display: 'Fredoka', 'Outfit', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Dense Foliage Palette */
+  --bg-deep: #03140a;
+  --bg-garden: #062312;
+  --green-deep: #0b3b1e;
+  --green-lush: #15803d;
+  --green-vibrant: #22c55e;
+  --green-mint: #4ade80;
+  --green-lime: #84cc16;
+  --leaf-highlight: #86efac;
+  --squirrel-orange: #ea580c;
+  --squirrel-gold: #f59e0b;
+  --sun-gold: #fbbf24;
+
+  /* UI Tokens */
+  --card-bg: rgba(4, 26, 13, 0.82);
+  --card-border: rgba(74, 222, 128, 0.28);
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 50% 10%, #0f3d20 0%, #051a0e 60%, var(--bg-deep) 100%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   TOP RETURN RIBBON
+   ========================================================================== */
+.top-nav-ribbon {
+  background: rgba(3, 16, 8, 0.92);
+  border-bottom: 1px solid rgba(74, 222, 128, 0.22);
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.65rem 1.25rem;
+}
+
+.ribbon-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ribbon-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.brand-badge {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: var(--squirrel-gold);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.ribbon-right {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-ribbon-icon {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  border-radius: 10px;
+  padding: 0.45rem 0.65rem;
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: all 0.2s ease;
+}
+
+.btn-ribbon-icon:hover {
+  background: rgba(74, 222, 128, 0.18);
+  border-color: rgba(74, 222, 128, 0.45);
+}
+
+.ribbon-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #86efac;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.ribbon-back-btn:hover {
+  background: rgba(74, 222, 128, 0.22);
+  color: #ffffff;
+  transform: translateX(-2px);
+}
+
+/* ==========================================================================
+   GAMEPLAY WRAPPER
+   ========================================================================== */
+.game-wrapper {
+  max-width: 1050px;
+  width: 100%;
+  margin: 1rem auto 2.5rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* HUD Bar */
+.game-hud-bar {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(14px);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hud-left-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.game-badge-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(34, 197, 94, 0.14);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: #bbf7d0;
+}
+
+.chip-icon { font-size: 1.2rem; }
+
+.mode-selector-pill {
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.25rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mode-tab {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-tab.active {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.4);
+}
+
+.hud-stats-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.stat-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 0.4rem 0.85rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.6px;
+}
+
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stat-score { color: #fef08a; }
+.stat-time { color: #38bdf8; }
+.stat-streak { color: #4ade80; }
+.stat-acorn { color: #fbbf24; }
+
+/* Feedback Banner Row */
+.feedback-banner-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.25rem;
+}
+
+.speed-feedback-pill {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #86efac;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.2s ease;
+}
+
+.speed-feedback-pill.flash-gold {
+  color: #fde047;
+  transform: scale(1.06);
+}
+
+.speed-feedback-pill.flash-red {
+  color: #f87171;
+  transform: scale(0.98);
+}
+
+.high-score-tag {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.high-score-tag strong { color: #fde047; }
+
+/* ==========================================================================
+   CHEERFUL CASUAL CARTOON ARCADE GARDEN THEME
+   Sunny sky, vibrant green hedge, climbing floral vines, 10 wreath burrows
+   ========================================================================== */
+.garden-stage-container.arcade-garden-theme {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 480px;
+  max-height: 680px;
+  background: #15803d;
+  border: 4px solid #86efac;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(34, 197, 94, 0.25);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* 1. Sunny Sky & Treetop Canopy Layer (Top ~22%) */
+.sky-canopy-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: linear-gradient(180deg, #38bdf8 0%, #7dd3fc 45%, #bae6fd 75%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Warm Smiling Sun / Sunburst Glow */
+.cartoon-sun {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fde047 30%, #f59e0b 80%);
+  box-shadow: 0 0 45px rgba(250, 204, 21, 0.8), 0 0 90px rgba(245, 158, 11, 0.4);
+}
+
+/* Fluffy Drifting Cartoon Clouds */
+.cartoon-cloud {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cartoon-cloud::before,
+.cartoon-cloud::after {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.cloud-1 {
+  width: 90px;
+  height: 28px;
+  top: 18px;
+  left: 12%;
+  opacity: 0.92;
+  animation: floatCloud 24s linear infinite;
+}
+.cloud-1::before { width: 36px; height: 36px; top: -16px; left: 16px; }
+.cloud-1::after { width: 28px; height: 28px; top: -10px; left: 44px; }
+
+.cloud-2 {
+  width: 110px;
+  height: 32px;
+  top: 14px;
+  right: 14%;
+  opacity: 0.88;
+  animation: floatCloudReverse 28s linear infinite;
+}
+.cloud-2::before { width: 44px; height: 44px; top: -18px; left: 22px; }
+.cloud-2::after { width: 34px; height: 34px; top: -12px; left: 56px; }
+
+@keyframes floatCloud {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(25px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes floatCloudReverse {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-25px); }
+  100% { transform: translateX(0); }
+}
+
+/* Treetop leaf clusters hanging from sky border */
+.treetop-canopy-leaves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background: radial-gradient(circle at 20px -10px, #16a34a 22px, transparent 23px),
+              radial-gradient(circle at 70px -12px, #22c55e 26px, transparent 27px),
+              radial-gradient(circle at 130px -10px, #15803d 24px, transparent 25px);
+  background-size: 150px 38px;
+  opacity: 0.95;
+}
+
+/* 2. Vibrant Green Cartoon Hedge Wall Backdrop */
+.cartoon-hedge-wall {
+  position: absolute;
+  top: 14%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(circle at 50% 30%, #22c55e 0%, #16a34a 40%, #15803d 75%, #052e16 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Scalloped puffy hedge top rim meeting the sky */
+.cartoon-hedge-wall::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: radial-gradient(circle at 20px 24px, #16a34a 18px, transparent 19px);
+  background-size: 38px 24px;
+  z-index: 3;
+}
+
+/* Bubbly bush scallop texture */
+.hedge-bush-bubbles {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 14% 18%, rgba(74, 222, 128, 0.28) 32px, transparent 34px),
+    radial-gradient(circle at 38% 14%, rgba(134, 239, 172, 0.25) 28px, transparent 30px),
+    radial-gradient(circle at 64% 16%, rgba(74, 222, 128, 0.28) 32px, transparent 34px),
+    radial-gradient(circle at 86% 20%, rgba(134, 239, 172, 0.25) 28px, transparent 30px),
+    radial-gradient(circle at 22% 48%, rgba(74, 222, 128, 0.2) 44px, transparent 46px),
+    radial-gradient(circle at 50% 52%, rgba(74, 222, 128, 0.18) 50px, transparent 52px),
+    radial-gradient(circle at 78% 48%, rgba(74, 222, 128, 0.2) 44px, transparent 46px);
+  opacity: 0.95;
+}
+
+/* 3. Decorative Climbing Rose & Daisy Vines on Borders */
+.side-climber-vine {
+  position: absolute;
+  top: 12%;
+  bottom: 2%;
+  width: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 6;
+  pointer-events: none;
+  font-size: 1.4rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.vine-left { left: 4px; }
+.vine-right { right: 4px; }
+
+/* ==========================================================================
+   CANOPY STAGE: 10 FLORAL WREATH BURROWS
+   ========================================================================== */
+.canopy-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+/* Base Wreath Spot Container */
+.wreath-spot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+/* 10 Spot Position Mapping: Balanced 3 - 4 - 3 Arcade Layout matching Concept B */
+/* Top Row (3 Spots) */
+.spot-pos-0 {
+  top: 11%;
+  left: 16%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 12;
+}
+
+.spot-pos-1 {
+  top: 9%;
+  left: 41%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 12;
+}
+
+.spot-pos-2 {
+  top: 11%;
+  left: 66%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 12;
+}
+
+/* Middle Row (4 Spots) */
+.spot-pos-4 {
+  top: 38%;
+  left: 4%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 14;
+}
+
+.spot-pos-3 {
+  top: 39%;
+  left: 28.5%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 14;
+}
+
+.spot-pos-5 {
+  top: 39%;
+  left: 53.5%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 14;
+}
+
+.spot-pos-6 {
+  top: 38%;
+  left: 78%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 14;
+}
+
+/* Bottom Row (3 Spots) */
+.spot-pos-7 {
+  top: 66%;
+  left: 16%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 16;
+}
+
+.spot-pos-8 {
+  top: 68%;
+  left: 41%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 16;
+}
+
+.spot-pos-9 {
+  top: 66%;
+  left: 66%;
+  width: 18%;
+  aspect-ratio: 1;
+  z-index: 16;
+}
+
+/* ==========================================================================
+   WREATH BURROW LAYER ARCHITECTURE (3-LAYER OCCLUSION)
+   ========================================================================== */
+
+/* 1. Deep Shadowed Circular Burrow Hole (Behind Critter) */
+.burrow-hole {
+  position: absolute;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 65%, #051c0d 0%, #010603 85%);
+  box-shadow: inset 0 8px 18px #000, 0 10px 24px rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.master-burrow-hole {
+  width: 82%;
+  height: 82%;
+  box-shadow: inset 0 10px 24px #000, 0 0 25px rgba(250, 204, 21, 0.4);
+}
+
+/* 2. Critter Slot (Centered over burrow hole) */
+.critter-slot {
+  position: absolute;
+  top: 10%;
+  left: 11%;
+  width: 78%;
+  height: 78%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transform: translateY(70%);
+  opacity: 0;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s ease;
+}
+
+/* Peeking State: emerges up into the center of the floral wreath */
+.critter-slot.peeking {
+  transform: translateY(0%);
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Ducking Down State */
+.critter-slot.ducking {
+  transform: translateY(70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.16s ease-in, opacity 0.14s ease-in;
+}
+
+/* Caught Happy Bounce Burst */
+@keyframes critterPopCatch {
+  0% { transform: translateY(0%) scale(1); }
+  25% { transform: translateY(-20px) scale(1.3, 0.75); }
+  50% { transform: translateY(-35px) scale(0.85, 1.25); }
+  100% { transform: translateY(-45px) scale(0); opacity: 0; }
+}
+
+.critter-slot.caught {
+  animation: critterPopCatch 0.35s ease forwards;
+  pointer-events: none;
+}
+
+/* 3. Outer Floral Wreath Frame Overlay */
+.wreath-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
+}
+
+/* 4. Foreground Ledge & Leaves (Occludes Critter Lower Body) */
+.wreath-front-ledge {
+  position: absolute;
+  bottom: 2%;
+  width: 100%;
+  height: 38%;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+/* ==========================================================================
+   RUSTLE TELEGRAPH ANIMATION (Wreath Leaves & Flowers Wiggle)
+   ========================================================================== */
+@keyframes wreathJiggle {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-4.5deg) scale(1.05); }
+  50% { transform: rotate(4.5deg) scale(1.05); }
+  75% { transform: rotate(-3deg) scale(1.03); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+.wreath-spot.rustling .wreath-overlay,
+.wreath-spot.rustling .wreath-front-ledge {
+  animation: wreathJiggle 0.24s ease-in-out infinite;
+  filter: drop-shadow(0 0 18px rgba(250, 204, 21, 0.8)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+}
+
+.wreath-spot.rustling .burrow-hole {
+  box-shadow: inset 0 8px 20px #000, 0 0 20px rgba(74, 222, 128, 0.7);
+}
+
+/* ==========================================================================
+   CRITTER GRAPHICS (SVGs Inside Critter Slot)
+   ========================================================================== */
+.critter-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+  transition: transform 0.12s ease;
+}
+
+.critter-svg:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   POPUPS & FLOATING SCORE PARTICLES
+   ========================================================================== */
+.popups-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+}
+
+@keyframes floatScoreUp {
+  0% { transform: translate(-50%, 0) scale(0.7); opacity: 0; }
+  25% { transform: translate(-50%, -15px) scale(1.2); opacity: 1; }
+  75% { transform: translate(-50%, -35px) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -55px) scale(0.9); opacity: 0; }
+}
+
+.floating-score {
+  position: absolute;
+  transform: translate(-50%, 0);
+  animation: floatScoreUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.floating-score.score-gold {
+  color: #fde047;
+  font-size: 1.6rem;
+}
+.floating-score.score-emerald { color: #86efac; }
+.floating-score.score-hazard { color: #f87171; }
+
+/* ==========================================================================
+   OVERLAY SCREENS (START & GAME OVER MODALS)
+   ========================================================================== */
+.stage-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 16, 8, 0.85);
+  backdrop-filter: blur(16px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.stage-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none !important;
+}
+
+.overlay-card {
+  max-width: 540px;
+  width: 100%;
+  background: rgba(6, 30, 15, 0.96);
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(34, 197, 94, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+  animation: popOverlay 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popOverlay {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.overlay-badge {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+}
+
+.overlay-title {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.overlay-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #cbd5e1;
+}
+
+.critter-guide-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.guide-item {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.golden-item {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.08);
+}
+.hazard-item {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.guide-icon { font-size: 1.7rem; }
+.guide-name { font-size: 0.78rem; font-weight: 700; color: #f8fafc; }
+.guide-pts { font-size: 0.72rem; color: #94a3b8; }
+.golden-item .guide-pts { color: #fde047; font-weight: 700; }
+.hazard-item .guide-pts { color: #fca5a5; font-weight: 700; }
+
+.btn-start-game {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  border: 1px solid #86efac;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-start-game:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.45);
+  background: linear-gradient(135deg, #4ade80, #16a34a);
+}
+
+/* End Stats Matrix */
+.end-stats-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.end-stat-box {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.end-stat-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fde047;
+}
+
+.end-stat-lbl {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.end-buttons-row { width: 100%; }
+
+/* ==========================================================================
+   TOOLBAR BUTTONS
+   ========================================================================== */
+.garden-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.toolbar-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.toolbar-btn:hover {
+  background: rgba(34, 197, 94, 0.18);
+  border-color: rgba(74, 222, 128, 0.45);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   INSTRUCTIONS & STRATEGY SECTION
+   ========================================================================== */
+.instructions-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.instructions-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.inst-icon { font-size: 1.4rem; }
+
+.instructions-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.instructions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.inst-item {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.inst-item-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #4ade80;
+  color: #86efac;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.inst-item-content {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.inst-item-content strong { color: #ffffff; }
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .top-nav-ribbon {
+    padding: 0.4rem 0.55rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ribbon-container {
+    width: 100%;
+    box-sizing: border-box;
+    gap: 0.4rem;
+  }
+  .brand-badge {
+    display: none;
+  }
+  .ribbon-brand {
+    font-size: 0.95rem;
+    gap: 0.35rem;
+  }
+  .ribbon-right {
+    gap: 0.35rem;
+  }
+  .btn-ribbon-icon {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.95rem;
+  }
+  .ribbon-back-btn {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.78rem;
+    gap: 0.25rem;
+  }
+
+  .game-wrapper {
+    margin: 0.35rem auto 1.5rem;
+    padding: 0 0.45rem;
+    gap: 0.45rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .game-hud-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem 0.65rem;
+    gap: 0.45rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hud-left-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.35rem;
+  }
+  .game-badge-chip {
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .mode-selector-pill {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.15rem;
+    box-sizing: border-box;
+  }
+  .mode-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.3rem 0.1rem;
+    font-size: 0.72rem;
+  }
+
+  .hud-stats-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.3rem;
+    box-sizing: border-box;
+  }
+  .stat-card {
+    padding: 0.3rem 0.15rem;
+    min-width: 0;
+    flex: 1;
+    text-align: center;
+  }
+  .stat-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.2px;
+  }
+  .stat-val {
+    font-size: 1.05rem;
+  }
+
+  .feedback-banner-row {
+    padding: 0 0.15rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .speed-feedback-pill {
+    font-size: 0.8rem;
+  }
+  .high-score-tag {
+    font-size: 0.8rem;
+  }
+
+  .garden-stage-container.arcade-garden-theme {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    aspect-ratio: 10 / 11;
+    min-height: auto;
+    max-height: 480px;
+    border-radius: 18px;
+    border-width: 3px;
+    margin: 0 auto;
+  }
+  .side-climber-vine {
+    font-size: 0.88rem;
+    width: 20px;
+  }
+
+  /* Overlay Screens on Mobile: Fit cleanly within stage without clipping */
+  .stage-overlay {
+    padding: 0.45rem;
+    box-sizing: border-box;
+  }
+  .overlay-card {
+    padding: 0.75rem 0.75rem;
+    gap: 0.4rem;
+    max-height: 96%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 14px;
+  }
+  .overlay-badge {
+    font-size: 0.65rem;
+    padding: 0.18rem 0.5rem;
+  }
+  .overlay-title {
+    font-size: 1.3rem;
+    line-height: 1.15;
+  }
+  .overlay-desc {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+  .critter-guide-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.3rem;
+    margin: 0.1rem 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .guide-item {
+    padding: 0.35rem 0.15rem;
+    border-radius: 8px;
+    gap: 0.1rem;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .guide-icon {
+    font-size: 1.2rem;
+  }
+  .guide-name {
+    font-size: 0.65rem;
+    line-height: 1.15;
+    text-align: center;
+  }
+  .guide-pts {
+    font-size: 0.6rem;
+    line-height: 1.1;
+    text-align: center;
+  }
+  .btn-start-game {
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+  .end-stats-matrix {
+    gap: 0.4rem;
+  }
+  .end-stat-box {
+    padding: 0.45rem;
+    border-radius: 8px;
+  }
+  .end-stat-num {
+    font-size: 1.25rem;
+  }
+  .end-stat-lbl {
+    font-size: 0.65rem;
+  }
+
+  .instructions-grid {
+    grid-template-columns: 1fr;
+  }
+  .instructions-card {
+    padding: 1rem 0.85rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .inst-item {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .back-btn-label {
+    font-size: 0;
+  }
+  .back-btn-label::after {
+    content: 'Games';
+    font-size: 0.78rem;
+  }
+  .instructions-header h3 {
+    font-size: 1.05rem;
+  }
+  .inst-item {
+    padding: 0.65rem 0.5rem;
+    gap: 0.5rem;
+  }
+}

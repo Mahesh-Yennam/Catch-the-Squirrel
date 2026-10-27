@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RFQ8M0VSFN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RFQ8M0VSFN');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Catch the Squirrel — Lush Garden Reflex Arcade | Gamility</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Play Catch the Squirrel online! Spot and catch mischievous squirrels peeking from behind lush garden leaves, flowerpots, and tree hollows. Fast reaction reflex game with zero downloads.">
+  <meta name="keywords" content="catch the squirrel, squirrel reflex game, garden whack a mole, tap reflex arcade, cute squirrel game, casual web games, gamility games">
+  <meta name="author" content="Gamility">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mahesh-yennam.github.io/Gamility/games/catch-the-squirrel/index.html">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mahesh-yennam.github.io/Gamility/games/catch-the-squirrel/index.html">
+  <meta property="og:title" content="Catch the Squirrel — Lush Garden Reflex Arcade | Gamility">
+  <meta property="og:description" content="Spot and catch mischievous squirrels peeking from lush garden leaves! Test your lightning reflexes, build streak multipliers, and spare the sleepy hedgehogs.">
+  <meta property="og:image" content="preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Catch the Squirrel — Lush Garden Reflex Arcade | Gamility">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catch the Squirrel — Lush Garden Reflex Arcade | Gamility">
+  <meta name="twitter:description" content="Spot and catch mischievous squirrels peeking from lush garden leaves! Test your lightning reflexes, build streak multipliers, and spare the sleepy hedgehogs.">
+  <meta name="twitter:image" content="preview.png">
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#15803d">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Catch the Squirrel",
+    "description": "Lush garden peek-and-duck reflex game. Catch swift squirrels darting from foliage, build combos, and avoid decoys.",
+    "genre": ["Casual", "Arcade", "Reflex", "Action"],
+    "playMode": "SinglePlayer",
+    "applicationCategory": "Game",
+    "operatingSystem": "Any modern web browser",
+    "inLanguage": "en"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- =========================================================================
+       TOP GAMILITY RETURN RIBBON
+       ========================================================================= -->
+  <header class="top-nav-ribbon" role="banner">
+    <div class="ribbon-container">
+      <div class="ribbon-left">
+        <a href="https://mahesh-yennam.github.io/Gamility/" class="ribbon-brand" title="Gamility Home" aria-label="Gamility Home">
+          <svg width="22" height="22" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 4L4 12V28L20 36L36 28V12L20 4Z" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M20 12L12 16V24L20 28L28 24V16L20 12Z" fill="#ec4899" fill-opacity="0.85"/>
+            <circle cx="20" cy="20" r="3" fill="#ffffff"/>
+          </svg>
+          <span class="brand-name">Gamility</span>
+          <span class="brand-badge">Arcade</span>
+        </a>
+      </div>
+      <div class="ribbon-right">
+        <button type="button" class="btn-ribbon-icon" id="btnToggleAudio" aria-label="Toggle Sound" title="Toggle Sound">
+          <span id="audioIcon">🔊</span>
+        </button>
+        <a href="https://mahesh-yennam.github.io/Gamility/games.html" class="ribbon-back-btn" title="Back to All Games">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span class="back-btn-label">Back to Games</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN GAMEPLAY VIEWPORT & GARDEN STAGE
+       ========================================================================= -->
+  <main class="game-wrapper">
+    <!-- Header HUD Bar -->
+    <section class="game-hud-bar" aria-label="Game Status Bar">
+      <div class="hud-left-group">
+        <div class="game-badge-chip">
+          <span class="chip-icon">🐿️</span>
+          <span class="chip-title">Catch the Squirrel</span>
+        </div>
+        <div class="mode-selector-pill" role="tablist" aria-label="Game Modes">
+          <button type="button" class="mode-tab active" data-mode="rush" role="tab" aria-selected="true">⏱️ 60s Rush</button>
+          <button type="button" class="mode-tab" data-mode="survival" role="tab" aria-selected="false">🎯 3 Lives</button>
+          <button type="button" class="mode-tab" data-mode="zen" role="tab" aria-selected="false">🧘 Zen Mode</button>
+        </div>
+      </div>
+
+      <div class="hud-stats-group">
+        <!-- Stat: Score -->
+        <div class="stat-card">
+          <span class="stat-label">Score</span>
+          <span class="stat-val stat-score" id="scoreDisplay">0</span>
+        </div>
+
+        <!-- Stat: Time / Lives Dynamic -->
+        <div class="stat-card" id="timeOrLivesCard">
+          <span class="stat-label" id="primaryStatLabel">Time</span>
+          <span class="stat-val stat-time" id="primaryStatVal">60s</span>
+        </div>
+
+        <!-- Stat: Streak Multiplier -->
+        <div class="stat-card">
+          <span class="stat-label">Streak</span>
+          <span class="stat-val stat-streak" id="streakDisplay">1×</span>
+        </div>
+
+        <!-- Stat: Acorns Caught -->
+        <div class="stat-card stat-acorns-card">
+          <span class="stat-label">Acorns</span>
+          <span class="stat-val stat-acorn" id="acornDisplay">0 🌰</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reaction & Speed Banner -->
+    <div class="feedback-banner-row">
+      <div class="speed-feedback-pill" id="speedPill">
+        <span>⚡ Watch for leaf rustles!</span>
+      </div>
+      <div class="high-score-tag">
+        Best: <strong id="bestScoreDisplay">0</strong>
+      </div>
+    </div>
+
+    <!-- Garden Playground Canvas & Stage Container -->
+    <div class="garden-stage-container arcade-garden-theme" id="gardenStage">
+      <!-- Sunny Sky, Fluffy Clouds & Treetop Canopy Layer -->
+      <div class="sky-canopy-layer" aria-hidden="true">
+        <div class="cartoon-sun"></div>
+        <div class="cartoon-cloud cloud-1"></div>
+        <div class="cartoon-cloud cloud-2"></div>
+        <div class="treetop-canopy-leaves"></div>
+      </div>
+
+      <!-- Vibrant Green Cartoon Hedge Wall Backdrop -->
+      <div class="cartoon-hedge-wall" aria-hidden="true">
+        <div class="hedge-bush-bubbles"></div>
+      </div>
+
+      <!-- Decorative Climbing Rose & Daisy Vines on Borders -->
+      <div class="side-climber-vine vine-left" aria-hidden="true">
+        <span class="v-flower">🌸</span>
+        <span class="v-leaf">🍃</span>
+        <span class="v-flower">🌹</span>
+        <span class="v-leaf">🌿</span>
+        <span class="v-flower">🌼</span>
+        <span class="v-berry">🍒</span>
+        <span class="v-flower">🌸</span>
+      </div>
+      <div class="side-climber-vine vine-right" aria-hidden="true">
+        <span class="v-flower">🌼</span>
+        <span class="v-leaf">🌿</span>
+        <span class="v-flower">🌹</span>
+        <span class="v-leaf">🍃</span>
+        <span class="v-flower">🌸</span>
+        <span class="v-berry">🍒</span>
+        <span class="v-flower">🌼</span>
+      </div>
+
+      <!-- Embedded Reusable SVG Templates for Floral Wreath Burrows -->
+      <svg width="0" height="0" style="position:absolute;visibility:hidden;" aria-hidden="true">
+        <defs>
+          <!-- Standard Floral Wreath Ring -->
+          <g id="wreath-template" fill="none">
+            <!-- Outer Leaves Garland -->
+            <path d="M80 8 Q88 18 80 28 Q72 18 80 8 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <path d="M66 12 Q76 18 70 28 Q60 22 66 12 Z" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+            <path d="M94 12 Q84 18 90 28 Q100 22 94 12 Z" fill="#16a34a" stroke="#14532d" stroke-width="1.5"/>
+            <path d="M125 32 Q130 44 120 48 Q115 36 125 32 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <circle cx="130" cy="46" r="3.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+            <circle cx="136" cy="42" r="3" fill="#dc2626" stroke="#991b1b" stroke-width="1"/>
+            <path d="M142 75 Q145 88 132 88 Q130 75 142 75 Z" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+            <path d="M136 62 Q144 70 134 78 Q126 70 136 62 Z" fill="#16a34a" stroke="#14532d" stroke-width="1.5"/>
+            <path d="M18 75 Q15 88 28 88 Q30 75 18 75 Z" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+            <path d="M24 62 Q16 70 26 78 Q34 70 24 62 Z" fill="#16a34a" stroke="#14532d" stroke-width="1.5"/>
+            <path d="M35 32 Q30 44 40 48 Q45 36 35 32 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <circle cx="30" cy="46" r="3.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+            <circle cx="24" cy="42" r="3" fill="#dc2626" stroke="#991b1b" stroke-width="1"/>
+            <!-- Woody Vine Ring with fill none -->
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#78350f" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#a16207" stroke-width="3" stroke-dasharray="14 6" stroke-linecap="round"/>
+            <!-- Blossom Flowers -->
+            <g transform="translate(80, 20)">
+              <circle cx="0" cy="0" r="8" fill="#f43f5e" stroke="#9f1239" stroke-width="1.5"/>
+              <circle cx="-3" cy="-2" r="5" fill="#fb7185"/>
+              <circle cx="2" cy="2" r="4" fill="#fda4af"/>
+              <circle cx="0" cy="0" r="2.5" fill="#fef08a"/>
+            </g>
+            <g transform="translate(136, 80)">
+              <circle cx="-5" cy="0" r="4.5" fill="#fef08a"/>
+              <circle cx="5" cy="0" r="4.5" fill="#fef08a"/>
+              <circle cx="0" cy="-5" r="4.5" fill="#fef08a"/>
+              <circle cx="0" cy="5" r="4.5" fill="#fef08a"/>
+              <circle cx="0" cy="0" r="4" fill="#f59e0b" stroke="#78350f" stroke-width="1"/>
+            </g>
+            <g transform="translate(24, 80)">
+              <circle cx="0" cy="0" r="8" fill="#f43f5e" stroke="#9f1239" stroke-width="1.5"/>
+              <circle cx="-2" cy="-2" r="5" fill="#fb7185"/>
+              <circle cx="2" cy="2" r="4" fill="#fda4af"/>
+              <circle cx="0" cy="0" r="2.5" fill="#fef08a"/>
+            </g>
+          </g>
+
+          <!-- Standard Foreground Ledge & Leaves -->
+          <g id="ledge-template" fill="none">
+            <path d="M26 18 Q80 34 134 18" stroke="#78350f" stroke-width="8" stroke-linecap="round"/>
+            <path d="M26 18 Q80 34 134 18" stroke="#a16207" stroke-width="3" stroke-dasharray="12 6" stroke-linecap="round"/>
+            <path d="M50 20 Q62 4 72 18 Q60 28 50 20 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <path d="M110 20 Q98 4 88 18 Q100 28 110 20 Z" fill="#16a34a" stroke="#14532d" stroke-width="1.5"/>
+            <path d="M80 22 Q70 6 80 0 Q90 6 80 22 Z" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+            <circle cx="65" cy="24" r="3.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+            <circle cx="95" cy="24" r="3.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+            <g transform="translate(42, 24)">
+              <circle cx="0" cy="0" r="6" fill="#38bdf8" stroke="#0369a1" stroke-width="1"/>
+              <circle cx="0" cy="0" r="2.5" fill="#fef08a"/>
+            </g>
+            <g transform="translate(118, 24)">
+              <circle cx="0" cy="0" r="6" fill="#f43f5e" stroke="#9f1239" stroke-width="1"/>
+              <circle cx="0" cy="0" r="2.5" fill="#fef08a"/>
+            </g>
+          </g>
+
+          <!-- Master Center Floral Wreath Ring -->
+          <g id="wreath-master-template" fill="none">
+            <!-- Golden Glow Ring -->
+            <circle cx="80" cy="80" r="58" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 6" opacity="0.6"/>
+            <!-- Outer Lush Leaves Garland -->
+            <path d="M80 6 Q90 16 80 28 Q70 16 80 6 Z" fill="#fde047" stroke="#ca8a04" stroke-width="1.5"/>
+            <path d="M64 10 Q74 16 68 28 Q58 22 64 10 Z" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+            <path d="M96 10 Q86 16 92 28 Q102 22 96 10 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <path d="M130 30 Q136 42 124 46 Q120 34 130 30 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <circle cx="134" cy="44" r="4" fill="#fbbf24" stroke="#b45309" stroke-width="1"/>
+            <path d="M144 75 Q148 88 134 88 Q132 75 144 75 Z" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+            <path d="M16 75 Q12 88 26 88 Q28 75 16 75 Z" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+            <path d="M30 30 Q24 42 36 46 Q40 34 30 30 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <circle cx="26" cy="44" r="4" fill="#fbbf24" stroke="#b45309" stroke-width="1"/>
+            <!-- Woody Vine Ring with fill none -->
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#92400e" stroke-width="9" stroke-linecap="round"/>
+            <circle cx="80" cy="80" r="54" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="14 6" stroke-linecap="round"/>
+            <!-- Big Golden Sunflower on Top -->
+            <g transform="translate(80, 18)">
+              <circle cx="-6" cy="0" r="5" fill="#facc15"/>
+              <circle cx="6" cy="0" r="5" fill="#facc15"/>
+              <circle cx="0" cy="-6" r="5" fill="#facc15"/>
+              <circle cx="0" cy="6" r="5" fill="#facc15"/>
+              <circle cx="-4" cy="-4" r="4.5" fill="#fef08a"/>
+              <circle cx="4" cy="4" r="4.5" fill="#fef08a"/>
+              <circle cx="-4" cy="4" r="4.5" fill="#fef08a"/>
+              <circle cx="4" cy="-4" r="4.5" fill="#fef08a"/>
+              <circle cx="0" cy="0" r="5" fill="#78350f"/>
+            </g>
+            <g transform="translate(138, 80)">
+              <circle cx="0" cy="0" r="9" fill="#f43f5e" stroke="#9f1239" stroke-width="1.5"/>
+              <circle cx="-2" cy="-2" r="5" fill="#fb7185"/>
+              <circle cx="0" cy="0" r="3" fill="#fef08a"/>
+            </g>
+            <g transform="translate(22, 80)">
+              <circle cx="0" cy="0" r="9" fill="#f43f5e" stroke="#9f1239" stroke-width="1.5"/>
+              <circle cx="-2" cy="-2" r="5" fill="#fb7185"/>
+              <circle cx="0" cy="0" r="3" fill="#fef08a"/>
+            </g>
+          </g>
+
+          <!-- Master Foreground Ledge -->
+          <g id="ledge-master-template">
+            <path d="M24 18 Q80 36 136 18" stroke="#92400e" stroke-width="9" stroke-linecap="round"/>
+            <path d="M24 18 Q80 36 136 18" stroke="#f59e0b" stroke-width="3.5" stroke-dasharray="12 6" stroke-linecap="round"/>
+            <path d="M48 20 Q60 4 72 18 Q60 30 48 20 Z" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+            <path d="M112 20 Q100 4 88 18 Q100 30 112 20 Z" fill="#16a34a" stroke="#14532d" stroke-width="1.5"/>
+            <path d="M80 22 Q70 4 80 -2 Q90 4 80 22 Z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
+            <circle cx="64" cy="24" r="4" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+            <circle cx="96" cy="24" r="4" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+            <g transform="translate(40, 24)">
+              <circle cx="0" cy="0" r="7" fill="#ec4899" stroke="#9d174d" stroke-width="1"/>
+              <circle cx="0" cy="0" r="3" fill="#fef08a"/>
+            </g>
+            <g transform="translate(120, 24)">
+              <circle cx="0" cy="0" r="7" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+              <circle cx="0" cy="0" r="3" fill="#fef08a"/>
+            </g>
+          </g>
+        </defs>
+      </svg>
+
+      <!-- 10 Cheerful Floral Wreath Burrows (Preserving Hand-Drawn Distribution) -->
+      <div class="canopy-stage" id="spotsGrid">
+        <!-- Spot 0: Top-Left Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-0" data-spot="0" id="spot-0">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-0"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 1: Top-Center Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-1" data-spot="1" id="spot-1">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-1"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 2: Top-Right Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-2" data-spot="2" id="spot-2">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-2"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 3: Mid-Upper Center Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-3" data-spot="3" id="spot-3">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-3"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 4: Mid-Left Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-4" data-spot="4" id="spot-4">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-4"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 5: Central Prominent Master Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-5 spot-master-wreath" data-spot="5" id="spot-5">
+          <div class="burrow-hole master-burrow-hole">
+            <div class="critter-slot" id="critter-5"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-master-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-master-template"/></svg>
+        </div>
+
+        <!-- Spot 6: Mid-Right Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-6" data-spot="6" id="spot-6">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-6"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 7: Bottom-Left Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-7" data-spot="7" id="spot-7">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-7"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 8: Bottom-Center Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-8" data-spot="8" id="spot-8">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-8"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+
+        <!-- Spot 9: Bottom-Right Wreath Burrow -->
+        <div class="garden-spot wreath-spot spot-pos-9" data-spot="9" id="spot-9">
+          <div class="burrow-hole">
+            <div class="critter-slot" id="critter-9"></div>
+          </div>
+          <svg class="wreath-overlay" viewBox="0 0 160 160" aria-hidden="true"><use href="#wreath-template"/></svg>
+          <svg class="wreath-front-ledge" viewBox="0 0 160 50" aria-hidden="true"><use href="#ledge-template"/></svg>
+        </div>
+      </div>
+
+      <!-- Floating Catch Score Popups Container -->
+      <div class="popups-layer" id="popupsLayer" aria-hidden="true"></div>
+
+      <!-- Start Overlay Screen -->
+      <div class="stage-overlay" id="startOverlay">
+        <div class="overlay-card">
+          <div class="overlay-badge">🌿 Botanical Reflex Game</div>
+          <h2 class="overlay-title">Catch the Squirrel! 🐿️</h2>
+          <p class="overlay-desc">Spot leaf rustles, tap swift squirrels before they duck away, and beware of sleepy hedgehogs!</p>
+          
+          <div class="critter-guide-row">
+            <div class="guide-item">
+              <span class="guide-icon">🐿️</span>
+              <span class="guide-name">Brown Squirrel</span>
+              <span class="guide-pts">+100 to +300</span>
+            </div>
+            <div class="guide-item golden-item">
+              <span class="guide-icon">✨🐿️</span>
+              <span class="guide-name">Golden Squirrel</span>
+              <span class="guide-pts">+500 & +Time</span>
+            </div>
+            <div class="guide-item hazard-item">
+              <span class="guide-icon">🦔</span>
+              <span class="guide-name">Hedgehog</span>
+              <span class="guide-pts">-150 Hazard</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn-start-game" id="btnStartGame">
+            <span>START GAME ➔</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Game Over Overlay Screen -->
+      <div class="stage-overlay hidden" id="gameOverOverlay">
+        <div class="overlay-card">
+          <div class="overlay-badge" id="endStatusBadge">🌻 Round Completed!</div>
+          <h2 class="overlay-title" id="endTitleDisplay">Garden Master!</h2>
+          <p class="overlay-desc" id="endSummaryDesc">You caught sneaky squirrels with remarkable speed.</p>
+
+          <div class="end-stats-matrix">
+            <div class="end-stat-box">
+              <span class="end-stat-num" id="endFinalScore">0</span>
+              <span class="end-stat-lbl">Final Score</span>
+            </div>
+            <div class="end-stat-box">
+              <span class="end-stat-num" id="endCaughtCount">0</span>
+              <span class="end-stat-lbl">Squirrels Caught</span>
+            </div>
+            <div class="end-stat-box">
+              <span class="end-stat-num" id="endAvgSpeed">0ms</span>
+              <span class="end-stat-lbl">Avg Reaction Time</span>
+            </div>
+            <div class="end-stat-box">
+              <span class="end-stat-num" id="endMaxStreak">0×</span>
+              <span class="end-stat-lbl">Peak Streak</span>
+            </div>
+          </div>
+
+          <div class="end-buttons-row">
+            <button type="button" class="btn-start-game" id="btnPlayAgain">
+              <span>🔄 Play Again</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garden Action Toolbar -->
+    <div class="garden-toolbar">
+      <button type="button" class="toolbar-btn" id="btnRestart">
+        <span>🔄 Restart</span>
+      </button>
+      <button type="button" class="toolbar-btn" id="btnPause">
+        <span id="pauseIcon">⏸️ Pause</span>
+      </button>
+      <button type="button" class="toolbar-btn" id="btnSound">
+        <span>🔊 Audio: On</span>
+      </button>
+    </div>
+
+    <!-- How to Play & Strategy Section -->
+    <section class="instructions-card" aria-label="Game Instructions">
+      <div class="instructions-header">
+        <span class="inst-icon">📖</span>
+        <h3>How to Play &amp; Master the Garden</h3>
+      </div>
+      <div class="instructions-grid">
+        <div class="inst-item">
+          <div class="inst-item-num">1</div>
+          <div class="inst-item-content">
+            <strong>Anticipate the Rustle:</strong> Watch the foliage closely. A fraction of a second before a squirrel peeks out, the leaves shake and rustle.
+          </div>
+        </div>
+        <div class="inst-item">
+          <div class="inst-item-num">2</div>
+          <div class="inst-item-content">
+            <strong>Speed Tiers:</strong> Catching a squirrel in under 300ms earns maximum points (+300 pts) and the coveted <em>Lightning Reflex</em> badge.
+          </div>
+        </div>
+        <div class="inst-item">
+          <div class="inst-item-num">3</div>
+          <div class="inst-item-content">
+            <strong>Build Combo Multipliers:</strong> Each consecutive successful catch increases your streak multiplier up to 5× bonus scoring.
+          </div>
+        </div>
+        <div class="inst-item">
+          <div class="inst-item-num">4</div>
+          <div class="inst-item-content">
+            <strong>Spare the Hedgehogs:</strong> Friendly sleepy hedgehogs occasionally take naps in the bushes. Tapping them disrupts your streak and incurs a penalty!
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Core Game Script -->
+  <script src="game.js"></script>
+</body>
+</html>
